@@ -10,15 +10,15 @@ const server = http.createServer(app);
 // Enable CORS for all routes
 app.use(cors());
 
-// Create a Socket.io instance
+// Create a Socket.io instance with CORS configuration
 const io = socketIO(server, {
-  cors: {
-    origin: "http://localhost:3000", // Allow requests only from localhost:3000
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true,
-  },
-});
+    cors: {
+      origin: ["http://localhost:3000", "https://snakeandladders-webgame.vercel.app"], // Allow requests from localhost:3000 and snakeandladders-webgame.vercel.app
+      methods: ["GET", "POST"],
+      allowedHeaders: ["my-custom-header"],
+      credentials: true,
+    },
+  });
 
 let rooms = [];
 
