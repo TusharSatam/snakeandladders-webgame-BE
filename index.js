@@ -13,7 +13,7 @@ app.use(cors());
 // Create a Socket.io instance
 const io = socketIO(server, {
   cors: {
-    origin: "https://snakeandladders-webgame.vercel.app/", // Allow requests only from localhost:3000
+    origin: "http://localhost:3000", // Allow requests only from localhost:3000
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
